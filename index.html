@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UULE generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="row">
+  <div class="column medium-8 medium-offset-2 large-6 large-offset-3">
+    <h1>UULE generator</h1>
+
+    <div class="input-group">
+      <input class="input-group-field" type="text" name="geo" placeholder="Geographical Targeting Cannonical Name" />
+      <div class="input-group-button">
+        <button class="button">generate</button>
+      </div>
+    </div>
+    <p class="help-text">
+      <a href="https://developers.google.com/adwords/api/docs/appendix/geotargeting" target="_blank">Geographical Targeting &rarr;</a>
+    </p>
+
+    <div class="callout" style="display: none; word-wrap: break-word;">
+      <p class="lead"></p>
+      <hr>
+      <small class="with-get"></small>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.js"></script>
+<script type="text/javascript">
+	$('body').on('click', 'button', function() {
+
+	  var geo = $('input').val(),
+	    result = 'w+CAIQICI',
+	    len = geo.length,
+	    base64 = window.btoa(geo),
+	    arr = ["", "", "", "", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "M", "T", "L"],
+	    secret = arr[len];
+
+	  result += secret;
+	  result += base64;
+
+	  $('.callout').show();
+	  $('.lead').text(result);
+	  $('.with-get').text("&uule=" + result);
+	});
+
+</script>
+</body>
+</html>
